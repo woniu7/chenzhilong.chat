@@ -457,13 +457,13 @@ function handleSwitch() {
   ]
 
   const chatListHTML = chatList.map(({ name, count, rows }, index) => {
-    const otherUsernames = Array.from(new Set(rows.filter(({ username }) => username && username !== 'chenzhilong').map(({ username }) => username)))
+    const otherUsernames = Array.from(new Set(rows.filter(({ username }) => username && username !== 'wangrongda').map(({ username }) => username)))
     const isGroup = count > 2
     return `
       <div class="chat-list-item" data-index="${index}" data-active="false">
         <div class="item-avatar ${isGroup ? '' : `user-avatar avatar-${otherUsernames[0]}`}">
           ${isGroup
-            ? ['chenzhilong'].concat(otherUsernames)
+            ? ['wangrongda'].concat(otherUsernames)
               .filter((name, nameIndex) => nameIndex <= 8)
               .map(name => `
                 <div class="user-avatar avatar-${name} is-in-group">
@@ -488,7 +488,7 @@ function handleSwitch() {
         ${rows.map(({ username, content }) => {
           return username
             ? `
-              <div class="bubble ${username === 'chenzhilong' ? 'bubble-right' : ''}">
+              <div class="bubble ${username === 'wangrongda' ? 'bubble-right' : ''}">
                 <div class="user-avatar avatar-${username}"></div>
                 <div class="bubble-text">
                   ${count === 2 ? '' : `<div class="bubble-text-name">${userMap[username]}</div>`}
@@ -544,9 +544,9 @@ function handleSwitch() {
       const bubbleElement = document.createElement('div')
       bubbleElement.setAttribute('class', 'bubble bubble-right')
       bubbleElement.innerHTML = `
-        <div class="user-avatar avatar-chenzhilong"></div>
+        <div class="user-avatar avatar-wangrongda"></div>
         <div class="bubble-text">
-          <div class="bubble-text-name">${userMap['chenzhilong']}</div>
+          <div class="bubble-text-name">${userMap['wangrongda']}</div>
           <div class="bubble-text-content">
             ${document.querySelector('.textarea-container textarea').value.trim() || defaultText}
           </div>
